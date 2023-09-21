@@ -1,6 +1,0 @@
-- name: ELK Config Setup
-  hosts: all
-  become: yes
-  roles:
-    - elk
-

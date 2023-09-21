@@ -1,11 +1,7 @@
-- name: Logstash Config Copy
-  ansible.builtin.template:
-    src: logstash.conf
-    dest: /etc/logstash/conf.d/logstash.conf
-
-- name: Restart LogStash
-  ansible.builtin.systemd:
-    name: logstash
-    state: restarted
-    enabled: yes
-
+- name: Load Logstash
+  ansible.builtin.include_tasks: logstash.yml
+  when: elk_component == "logstash"
+  
+- name: Load Filebeat
+  ansible.builtin.include_tasks: filebeat.yml
+  when: elk_component == "filebeat"
