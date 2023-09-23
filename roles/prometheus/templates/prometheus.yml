@@ -29,6 +29,6 @@ scrape_configs:
       - targets: ["localhost:9090"]
 
   - job_name: "expense"
-    ec2_id_configs:
+    ec2_sd_configs:
       - region: us-east-1
         port: 9100  
